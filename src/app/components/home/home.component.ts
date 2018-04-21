@@ -12,7 +12,7 @@ export class HomeComponent implements OnInit {
   currentTime = Date.now();
   fixedTimezone = '2015-06-15T09:03:01+0900';
 
-  weatherData : WeatherData[];
+  weatherData : number;
 
   aboutShow : boolean;
   servicesShow : boolean;
@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
     this.weatherService.getAlbums().subscribe(albums => {
       console.log("retrieved album")
       console.log(albums)
-      this.weatherData = albums;
+      this.weatherData = albums.current_observation.temp_c;
     });
 
     this.aboutShow = false;
